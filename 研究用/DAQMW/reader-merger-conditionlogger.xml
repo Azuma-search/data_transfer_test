@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!-- DON'T REMOVE THE ABOVE LINE.                                     -->
+<!-- DON'T PUT ANY LINES ABOVE THE 1ST LINE.                          -->
+<!-- Sample config.xml to run SampleReader and SampleMonitor.         -->
+<!-- Please rewrite execPath (2 places), confFile (2 places) suitable -->
+<!-- for your directory structure.                                    -->
+<!-- run.py will create rtc.conf in /tmp/daqmw/rtc.conf               -->
+<!-- If you use run.py, set confFile as /tmp/daqmw/rtc.conf           -->
+<configInfo>
+  <daqOperator>
+    <hostAddr>127.0.0.1</hostAddr>
+  </daqOperator>
+  <daqGroups>
+    <daqGroup gid="group0">
+      <components>
+        <component cid="SliTDaqmwReader10">
+          <hostAddr>127.0.0.1</hostAddr>
+          <hostPort>50000</hostPort>
+          <instName>SliTDaqmwReader10.rtc</instName>
+          <execPath>/home/azuma/SliTDAQ/daqmw/SliTDaqmwReader1/SliTDaqmwReader1Comp</execPath>
+          <confFile>/tmp/daqmw/rtc.conf</confFile>
+          <startOrd>6</startOrd>
+          <inPorts>
+          </inPorts>
+          <outPorts>
+            <outPort>slitdaqmwreader1_out</outPort>
+          </outPorts>
+          <params>
+	    <param pid="debugMessage">1</param>
+	    <!-- <param pid="firmwareVersion">1</param> -->
+            <param pid="srcAddr">192.168.8.13</param>
+	    <!-- <param pid="qvId">1</param> -->
+	    <!-- <param pid="boardId">1</param> -->
+            <param pid="srcPort">24</param>
+            <!-- <param pid="isStoreOneEventData">1</param> -->
+	    <!-- <param pid="isTimeOutFatal">0</param> -->
+	    <!-- <param pid="timeOut">20</param> -->
+          </params>
+        </component>
+        <component cid="SliTDaqmwReader20">
+          <hostAddr>127.0.0.1</hostAddr>
+          <hostPort>50000</hostPort>
+          <instName>SliTDaqmwReader20.rtc</instName>
+          <execPath>/home/azuma/SliTDAQ/daqmw/SliTDaqmwReader2/SliTDaqmwReader2Comp</execPath>
+          <confFile>/tmp/daqmw/rtc.conf</confFile>
+          <startOrd>5</startOrd>
+          <inPorts>
+          </inPorts>
+          <outPorts>
+            <outPort>slitdaqmwreader2_out</outPort>
+          </outPorts>
+          <params>
+	    <param pid="debugMessage">1</param>
+	    <!-- <param pid="firmwareVersion">1</param> -->
+            <param pid="srcAddr">192.168.8.14</param>
+	    <!-- <param pid="qvId">1</param> -->
+	    <!-- <param pid="boardId">1</param> -->
+            <param pid="srcPort">24</param>
+            <!-- <param pid="isStoreOneEventData">1</param> -->
+	    <!-- <param pid="isTimeOutFatal">0</param> -->
+	    <!-- <param pid="timeOut">20</param> -->
+          </params>
+        </component>
+        <component cid="SliTDaqmwReader30">
+          <hostAddr>127.0.0.1</hostAddr>
+          <hostPort>50000</hostPort>
+          <instName>SliTDaqmwReader30.rtc</instName>
+          <execPath>/home/azuma/SliTDAQ/daqmw/SliTDaqmwReader3/SliTDaqmwReader3Comp</execPath>
+          <confFile>/tmp/daqmw/rtc.conf</confFile>
+          <startOrd>4</startOrd>
+          <inPorts>
+          </inPorts>
+          <outPorts>
+            <outPort>slitdaqmwreader3_out</outPort>
+          </outPorts>
+          <params>
+	    <param pid="debugMessage">1</param>
+	    <!-- <param pid="firmwareVersion">1</param> -->
+            <param pid="srcAddr">192.168.8.15</param>
+	    <!-- <param pid="qvId">1</param> -->
+	    <!-- <param pid="boardId">1</param> -->
+            <param pid="srcPort">24</param>
+            <!-- <param pid="isStoreOneEventData">1</param> -->
+	    <!-- <param pid="isTimeOutFatal">0</param> -->
+	    <!-- <param pid="timeOut">20</param> -->
+          </params>
+        </component>
+        <component cid="SliTDaqmwReader40">
+          <hostAddr>127.0.0.1</hostAddr>
+          <hostPort>50000</hostPort>
+          <instName>SliTDaqmwReader40.rtc</instName>
+          <execPath>/home/azuma/SliTDAQ/daqmw/SliTDaqmwReader4/SliTDaqmwReader4Comp</execPath>
+          <confFile>/tmp/daqmw/rtc.conf</confFile>
+          <startOrd>3</startOrd>
+          <inPorts>
+          </inPorts>
+          <outPorts>
+            <outPort>slitdaqmwreader4_out</outPort>
+          </outPorts>
+          <params>
+	    <param pid="debugMessage">1</param>
+	    <!-- <param pid="firmwareVersion">1</param> -->
+            <param pid="srcAddr">192.168.8.16</param>
+	    <!-- <param pid="qvId">1</param> -->
+	    <!-- <param pid="boardId">1</param> -->
+            <param pid="srcPort">24</param>
+            <!-- <param pid="isStoreOneEventData">1</param> -->
+	    <!-- <param pid="isTimeOutFatal">0</param> -->
+	    <!-- <param pid="timeOut">20</param> -->
+          </params>
+        </component>
+	<component cid="Merger0">
+          <hostAddr>127.0.0.1</hostAddr>
+          <hostPort>50000</hostPort>
+          <instName>Merger0.rtc</instName>
+	  <execPath>/home/azuma/SliTDAQ/daqmw/Merger/MergerComp</execPath>
+          <confFile>/tmp/daqmw/rtc.conf</confFile>
+          <startOrd>2</startOrd>
+          <inPorts>
+	    <inPort from="SliTDaqmwReader10:slitdaqmwreader1_out" buffer_length="4096">merger_in_0</inPort>
+	    <inPort from="SliTDaqmwReader20:slitdaqmwreader2_out" buffer_length="4096">merger_in_1</inPort>
+	    <inPort from="SliTDaqmwReader30:slitdaqmwreader3_out" buffer_length="4096">merger_in_2</inPort>
+	    <inPort from="SliTDaqmwReader40:slitdaqmwreader4_out" buffer_length="4096">merger_in_3</inPort>
+          </inPorts>
+          <outPorts>
+            <outPort>merger_out</outPort>
+          </outPorts>
+	  <params>
+          </params>
+        </component>
+	<component cid="SliTDaqmwLogger0">
+          <hostAddr>127.0.0.1</hostAddr>
+          <hostPort>50000</hostPort>
+	  <instName>SliTDaqmwLogger0.rtc</instName>
+	  <execPath>/home/azuma/SliTDAQ/daqmw/ConditionSliTDaqmwLogger/SliTDaqmwLoggerComp</execPath>
+          <confFile>/tmp/daqmw/rtc.conf</confFile>
+          <startOrd>1</startOrd>
+          <inPorts>
+	    <inPort from="Merger0:merger_out">slitdaqmwlogger_in</inPort>
+          </inPorts>
+          <outPorts>
+          </outPorts>
+          <params>
+	    <param pid="debugMessage">1</param>
+	    <!-- <param pid="firmwareVersion">1</param> -->
+	    <param pid="isLogging">yes</param>
+            <param pid="dirName">test</param>
+	    <param pid="nQv">4</param>
+            <!-- <param pid="maxFileSizeInMegaByte">10</param> -->
+	    <param pid="maxFileSizeInGigaByte">20</param>
+	    <param pid="headerName">g2museum</param>
+	    <param pid="runSummaryFileName">run_summary.dat</param>
+	    <param pid="isMakeDummyFile">1</param>
+          </params>
+        </component>	
+      </components>
+    </daqGroup>
+  </daqGroups>
+</configInfo>
